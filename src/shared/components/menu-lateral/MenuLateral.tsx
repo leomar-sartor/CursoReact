@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 // import HomeIcon from "@mui/icons-material/Inbox";
-import { useDrawerContext } from "../../contexts";
+import { useAppThemeContext, useDrawerContext } from "../../contexts";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 interface IListItemLinkProps {
   to: string;
@@ -50,10 +50,10 @@ interface IMenuLateralProps {
 
 export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
   const theme = useTheme();
-
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
+  const { toggleTheme } = useAppThemeContext();
 
   return (
     <React.Fragment>
@@ -94,6 +94,17 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
                   onClick={smDown ? toggleDrawerOpen : undefined}
                 />
               ))}
+            </List>
+          </Box>
+
+          <Box>
+            <List component="nav">
+              <ListItemButton onClick={toggleTheme}>
+                <ListItemIcon>
+                  <Icon>dark_mode</Icon>
+                </ListItemIcon>
+                <ListItemText primary="Alterar Tema"/>
+              </ListItemButton>
             </List>
           </Box>
         </Box>

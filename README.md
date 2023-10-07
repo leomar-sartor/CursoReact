@@ -12,4 +12,6 @@ yarn -D add json-server
                         watch   port
 rodar: yarn run json-server -w -p 3333 ./mock/database.json
 
+yarn add axios
+
 Continuar da aula #19 => https://www.youtube.com/watch?v=BLmEyAzu5qc&list=PL29TaWXah3iaqOejItvW--TaFr9NcruyQ&index=21 MINUTO 13

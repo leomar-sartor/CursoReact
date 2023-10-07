@@ -6,4 +6,4 @@ Node versão 18.16.1
 
 github acompanhar: https://github.com/lvsouza/youtube-curso-react-materialui-typescript/tree/86631b324009bfff78aa90574db77fe753e44ddb
 
-Continuar da aula # => 
+Continuar da aula #17 => https://www.youtube.com/watch?v=jPSeDOyPAmY&list=PL29TaWXah3iaqOejItvW--TaFr9NcruyQ&index=19

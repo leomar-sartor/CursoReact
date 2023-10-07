@@ -104,11 +104,11 @@ export const FerramentasDeDetalhe: React.FC<IFerramentasDeDetalheProp> = ({
           <Typography
             variant="button"
             noWrap
-            // whiteSpace={"nowrap"}
+            // whiteSpace={"nowrap"} 
             // textOverflow="ellipsis"
             // overflow="hidden"
           >
-              Salvar e Voltar
+              Salvar e fechar
           </Typography>
         </Button>
       )}

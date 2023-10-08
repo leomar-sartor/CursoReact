@@ -2,8 +2,9 @@
     "pessoas": [
         {
             "id": 1,
-            "nome": "Leomar",
-            "sobrenome": "Sartor"
+            "email": "leomar_sartor@unochapeco.edu.br",
+            "cidadeId": "89850",
+            "nomeCompleto": "Leomar Vaz Sartor"
         }
     ]
 }

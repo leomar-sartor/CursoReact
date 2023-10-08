@@ -1,10 +1,40 @@
 {
-    "pessoas": [
-        {
-            "id": 1,
-            "email": "leomar_sartor@unochapeco.edu.br",
-            "cidadeId": "89850",
-            "nomeCompleto": "Leomar Vaz Sartor"
-        }
-    ]
+  "pessoas": [
+    {
+      "id": 1,
+      "email": "leomar@unochapeco.edu.br",
+      "cidadeId": "89850",
+      "nomeCompleto": "Leomar Vaz Sartor"
+    },
+    {
+      "id": 2,
+      "email": "veridiana@unochapeco.edu.br",
+      "cidadeId": "89850",
+      "nomeCompleto": "Veridiana Avila"
+    },
+    {
+      "id": 3,
+      "email": "luci@unochapeco.edu.br",
+      "cidadeId": "89850",
+      "nomeCompleto": "Luci Vaz"
+    },
+    {
+      "id": 4,
+      "email": "ana@unochapeco.edu.br",
+      "cidadeId": "89850",
+      "nomeCompleto": "Ana Gluzezak"
+    },
+    {
+      "id": 5,
+      "email": "thiago@unochapeco.edu.br",
+      "cidadeId": "89850",
+      "nomeCompleto": "Thiago Nunes"
+    },
+    {
+      "id": 6,
+      "email": "josehp@unochapeco.edu.br",
+      "cidadeId": "89850",
+      "nomeCompleto": "Josehp Avila Sartor"
+    }
+  ]
 }

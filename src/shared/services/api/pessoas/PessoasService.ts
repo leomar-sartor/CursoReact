@@ -1,14 +1,14 @@
 import { Environment } from "../../../enviroments";
 import { Api } from "../axios-config";
 
-interface IListagemPessoa {
+export interface IListagemPessoa {
   id: number;
   email: string;
   cidadeId: number;
   nomeCompleto: string;
 }
 
-interface IDetalhePessoa {
+export interface IDetalhePessoa {
     id: number;
     email: string;
     cidadeId: number;
@@ -33,7 +33,7 @@ const getAll = async (
       return {
         data,
         totalCount:
-          Number(headers["x-total-count"]) || Environment.LIMITE_DE_LINHAS
+          Number(headers["x-total-count"]) || 0 
       };
     }
 

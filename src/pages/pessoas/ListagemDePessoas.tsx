@@ -1,7 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import {
   LinearProgress,
+  Pagination,
   Paper,
   Table,
   TableBody,
@@ -21,6 +22,18 @@ import { LayoutBaseDePagina } from "../../shared/layouts";
 import { useDebounce } from "../../shared/hooks";
 import { Environment } from "../../shared/enviroments";
 
+const loading = (): React.ReactNode => {
+  const load = (
+    <TableRow>
+      <TableCell colSpan={4}>
+        <LinearProgress variant="indeterminate" />
+      </TableCell>
+    </TableRow>
+  );
+
+  return load;
+};
+
 export const ListagemDePessoas: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const { debounce } = useDebounce();
@@ -33,11 +46,15 @@ export const ListagemDePessoas: React.FC = () => {
     return searchParams.get("busca") || "";
   }, [searchParams]);
 
+  const pagina = useMemo(() => {
+    return Number(searchParams.get("pagina") || "1");
+  }, [searchParams]);
+
   useEffect(() => {
     setIsLoading(true);
 
     debounce(() => {
-      PessoaService.getAll(1, busca).then((result) => {
+      PessoaService.getAll(pagina, busca).then((result) => {
         setIsLoading(false);
 
         if (result instanceof Error) {
@@ -51,7 +68,7 @@ export const ListagemDePessoas: React.FC = () => {
         setRows(result.data);
       });
     });
-  }, [busca]);
+  }, [busca, pagina]);
 
   return (
     <LayoutBaseDePagina
@@ -62,7 +79,7 @@ export const ListagemDePessoas: React.FC = () => {
           textoDaBusca={busca}
           textoBotaoNovo="Nova"
           aoMudarTextoDeBusca={(texto) =>
-            setSearchParams({ busca: texto }, { replace: true })
+            setSearchParams({ busca: texto, pagina: "1" }, { replace: true })
           }
         />
       }
@@ -76,6 +93,7 @@ export const ListagemDePessoas: React.FC = () => {
           <TableHead>
             <TableRow>
               <TableCell>Ações</TableCell>
+              <TableCell>Nº</TableCell>
               <TableCell>Nome Completo</TableCell>
               <TableCell>E-mail</TableCell>
             </TableRow>
@@ -84,21 +102,33 @@ export const ListagemDePessoas: React.FC = () => {
             {rows.map((row) => (
               <TableRow key={row.id}>
                 <TableCell>Ações</TableCell>
+                <TableCell>{row.id}</TableCell>
                 <TableCell>{row.nomeCompleto}</TableCell>
                 <TableCell>{row.email}</TableCell>
               </TableRow>
             ))}
           </TableBody>
 
-          { totalCount === 0 && !isLoading && (
+          {totalCount === 0 && !isLoading && (
             <caption>{Environment.LISTAGEM_VAZIA}</caption>
           )}
 
           <TableFooter>
-            {isLoading && (
+            {isLoading && loading()}
+
+            {totalCount > 0 && totalCount > Environment.LIMITE_DE_LINHAS && (
               <TableRow>
-                <TableCell colSpan={3}>
-                  <LinearProgress variant="indeterminate" />
+                <TableCell colSpan={4}>
+                  <Pagination
+                    page={pagina}
+                    count={Math.ceil(totalCount / Environment.LIMITE_DE_LINHAS)}
+                    onChange={(_, newPage) =>
+                      setSearchParams(
+                        { busca, pagina: newPage.toString() },
+                        { replace: true }
+                      )
+                    }
+                  />
                 </TableCell>
               </TableRow>
             )}

@@ -14,4 +14,4 @@ rodar: yarn run json-server -w -p 3333 ./mock/database.json
 
 yarn add axios
 
-Continuar da aula #25 => https://www.youtube.com/watch?v=oCOAjBmzJ-Q&list=PL29TaWXah3iaqOejItvW--TaFr9NcruyQ&index=27
+Continuar da aula #30 => https://www.youtube.com/watch?v=PVA4N2ENT2I&list=PL29TaWXah3iaqOejItvW--TaFr9NcruyQ&index=32

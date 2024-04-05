@@ -14,4 +14,13 @@ rodar: yarn run json-server -w -p 3333 ./mock/database.json
 
 yarn add axios
 
-Continuar da aula #30 => https://www.youtube.com/watch?v=PVA4N2ENT2I&list=PL29TaWXah3iaqOejItvW--TaFr9NcruyQ&index=32
+
+Biblioteca pra Forms (unform rocktseat)
+https://unform-rocketseat.vercel.app/installation
+yarn add @unform/web @unform/core
+
+yarn add yup
+
+Continuar da aula #42
+
+=> https://www.youtube.com/watch?v=KtPNV6bevXE&list=PL29TaWXah3iaqOejItvW--TaFr9NcruyQ&index=39

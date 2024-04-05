@@ -17,7 +17,7 @@ import {
 
 import {
   IListagemPessoa,
-  PessoaService
+  PessoasService
 } from "../../shared/services/api/pessoas/PessoasService";
 import { FerramentasDaListagem } from "../../shared/components";
 import { LayoutBaseDePagina } from "../../shared/layouts";
@@ -57,7 +57,7 @@ export const ListagemDePessoas: React.FC = () => {
     setIsLoading(true);
 
     debounce(() => {
-      PessoaService.getAll(pagina, busca).then((result) => {
+      PessoasService.getAll(pagina, busca).then((result) => {
         setIsLoading(false);
 
         if (result instanceof Error) {
@@ -75,7 +75,7 @@ export const ListagemDePessoas: React.FC = () => {
 
   const handleDelete = (id: number) => {
     if(confirm("Realmente deseja apagar?")){
-      PessoaService.deleteById(id)
+      PessoasService.deleteById(id)
         .then(result => {
           if(result instanceof Error){
             alert(result.message);
@@ -115,7 +115,7 @@ export const ListagemDePessoas: React.FC = () => {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Ações</TableCell>
+              <TableCell width={100}>Ações</TableCell>
               <TableCell>Nº</TableCell>
               <TableCell>Nome Completo</TableCell>
               <TableCell>E-mail</TableCell>

@@ -105,7 +105,7 @@ const deleteById = async (
   }
 };
 
-export const PessoaService = {
+export const PessoasService = {
   getAll,
   getById,
   create,

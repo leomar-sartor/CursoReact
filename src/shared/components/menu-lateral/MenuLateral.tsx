@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 // import HomeIcon from "@mui/icons-material/Inbox";
-import { useAppThemeContext, useDrawerContext } from "../../contexts";
+import { useAppThemeContext, useAuthContext, useDrawerContext } from "../../contexts";
 import { useMatch, useNavigate, useResolvedPath } from "react-router-dom";
 interface IListItemLinkProps {
   to: string;
@@ -22,12 +22,12 @@ interface IListItemLinkProps {
   onClick: (() => void) | undefined;
 }
 
-const ListItemLink: React.FC<IListItemLinkProps> = ({ to, icon, label, onClick}) => {
+const ListItemLink: React.FC<IListItemLinkProps> = ({ to, icon, label, onClick }) => {
 
   const navigate = useNavigate();
 
   const resolvePath = useResolvedPath(to);
-  const match = useMatch({path: resolvePath.pathname, end: false});
+  const match = useMatch({ path: resolvePath.pathname, end: false });
 
   const handleClick = () => {
     navigate(to);
@@ -42,7 +42,7 @@ const ListItemLink: React.FC<IListItemLinkProps> = ({ to, icon, label, onClick})
       <ListItemText primary={label} />
     </ListItemButton>
   );
-}; 
+};
 
 interface IMenuLateralProps {
   children?: React.ReactNode;
@@ -54,6 +54,7 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
 
   const { isDrawerOpen, toggleDrawerOpen, drawerOptions } = useDrawerContext();
   const { toggleTheme } = useAppThemeContext();
+  const { logout } = useAuthContext();
 
   return (
     <React.Fragment>
@@ -103,7 +104,14 @@ export const MenuLateral: React.FC<IMenuLateralProps> = ({ children }) => {
                 <ListItemIcon>
                   <Icon>dark_mode</Icon>
                 </ListItemIcon>
-                <ListItemText primary="Alterar Tema"/>
+                <ListItemText primary="Alterar Tema" />
+              </ListItemButton>
+
+              <ListItemButton onClick={logout}>
+                <ListItemIcon>
+                  <Icon>logout</Icon>
+                </ListItemIcon>
+                <ListItemText primary="Sair" />
               </ListItemButton>
             </List>
           </Box>

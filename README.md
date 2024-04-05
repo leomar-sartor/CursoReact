@@ -21,6 +21,6 @@ yarn add @unform/web @unform/core
 
 yarn add yup
 
-Continuar da aula #42
+Continuar da aula #45 minuto 16:30
 
 => https://www.youtube.com/watch?v=KtPNV6bevXE&list=PL29TaWXah3iaqOejItvW--TaFr9NcruyQ&index=39

@@ -114,5 +114,8 @@
       "nome": "Cidade 10",
       "id": 10
     }
-  ]
+  ],
+  "auth": {
+    "accessToken": "aaaaaa.bbbbbbb.cccccccc"
+  }
 }
